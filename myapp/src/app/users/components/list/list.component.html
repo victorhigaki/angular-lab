@@ -1,0 +1,42 @@
+<div class="card">
+  <div class="card-body">
+    <form action="">
+      <div class="form-group">
+        <label for=""></label>
+        <input type="button" class="form-control" />
+      </div>
+    </form>
+  </div>
+</div>
+
+<ngx-datatable
+  class="material"
+  [columnMode]="ColumnMode.force"
+  headerHeight="auto"
+  footerHeight="auto"
+  rowHeight="auto"
+  [rows]="result"
+>
+  <ngx-datatable-column name="Name">
+    <ng-template let-value="value" ngx-datatable-cell-template>
+      <div>{{ value }}</div>
+    </ng-template>
+  </ngx-datatable-column>
+
+  <ngx-datatable-column prop="address.city" name="City">
+    <ng-template let-value="value" ngx-datatable-cell-template>
+      <div>{{ value }}</div>
+    </ng-template>
+  </ngx-datatable-column>
+
+  <ngx-datatable-column name="" prop="id" width="">
+    <ng-template let-value="value" ngx-datatable-cell-template>
+      <div>
+        <i
+          class="fa fa-pencil text-warning cursor-pointer"
+          (click)="edit(value)"
+        ></i>
+      </div>
+    </ng-template>
+  </ngx-datatable-column>
+</ngx-datatable>
